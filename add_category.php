@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $success = false;
     }
 
-    // Redirect back to the main page with a message
     header('Location: index.php?message=' . urlencode($message) . '&success=' . ($success ? '1' : '0'));
     exit;
 }

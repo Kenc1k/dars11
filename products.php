@@ -61,27 +61,6 @@ class Product
         return $statement->execute();
     }
 
-    public static function search($keyword)
-    {
-        $connection = self::getConnection();
-        $query = "SELECT * FROM " . self::$tableName . " WHERE name LIKE :keyword";
-        $statement = $connection->prepare($query);
-        $keyword = "%$keyword%";
-        $statement->bindParam(':keyword', $keyword);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public static function count()
-    {
-        $connection = self::getConnection();
-        $query = "SELECT COUNT(*) as count FROM " . self::$tableName;
-        $statement = $connection->prepare($query);
-        $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        return $result['count'];
-    }
-
     public static function addCategory($name, $img)
     {
         $connection = self::getConnection();
@@ -92,5 +71,3 @@ class Product
         return $statement->execute();
     }
 }
-
-
