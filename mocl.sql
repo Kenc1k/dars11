@@ -1,6 +1,6 @@
-create DATABASE db_olx;
+create DATABASE db_text;
 
-use db_olx;
+use db_text;
 
 create  Table category(
     id INT PRIMARY key auto_increment,
