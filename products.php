@@ -81,6 +81,16 @@ class Product
         $result = $statement->fetch(PDO::FETCH_ASSOC);
         return $result['count'];
     }
+
+    public static function addCategory($name, $img)
+    {
+        $connection = self::getConnection();
+        $query = "INSERT INTO " . self::$tableName . " (name, img) VALUES (:name, :img)";
+        $statement = $connection->prepare($query);
+        $statement->bindParam(':name', $name);
+        $statement->bindParam(':img', $img);
+        return $statement->execute();
+    }
 }
 
 
